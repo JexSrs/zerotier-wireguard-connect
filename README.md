@@ -10,6 +10,21 @@ exposing the Wireguard port to the internet.
 
 You will need to have installed the [`zerotier-cli`](https://www.zerotier.com/download/) and [`wireguard-tools`](https://www.wireguard.com/install/).
 
+In the wireguard configuration, we have to remove the DNS settings and edit the allowed IPS:
+```conf
+[Interface]
+PrivateKey = ...
+Address = ...
+# DNS = 1.1.1.1
+
+[Peer]
+PublicKey = ...
+PresharedKey = ...
+AllowedIPs = 10.0.0.0/8 # Here edit the allowed address, in my case it is my homelab's local network
+PersistentKeepalive = 0
+Endpoint = ...:51820
+```
+
 ## How to run
 
 First populate the variables at the top of the `script.sh`.
