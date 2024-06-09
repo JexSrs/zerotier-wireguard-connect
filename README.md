@@ -10,12 +10,12 @@ exposing the Wireguard port to the internet.
 
 You will need to have installed the [`zerotier-cli`](https://www.zerotier.com/download/) and [`wireguard-tools`](https://www.wireguard.com/install/).
 
-In the wireguard configuration, we have to remove the DNS settings and edit the allowed IPS:
+In the wireguard configuration, we have to edit the allowed IPs:
 ```conf
 [Interface]
 PrivateKey = ...
 Address = ...
-# DNS = 1.1.1.1
+DNS = 10.0.0.1 # Set to your internal DNS server, in this case my router
 
 [Peer]
 PublicKey = ...
